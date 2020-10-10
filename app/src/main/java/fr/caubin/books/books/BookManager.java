@@ -21,7 +21,7 @@ import fr.caubin.books.utils.NetworkManager;
 public class BookManager{
     Context applicationContext;
     // TODO : set "https://openlibrary.org" to be a project constant
-    String bookAPIUrl = "https://openlibrary.org" + "/books/" ;
+    String bookAPIUrl = "https://openlibrary.org"  ;
     RequestQueue requestQueue;
 
     public BookManager(Context applicationContext) {
@@ -31,7 +31,7 @@ public class BookManager{
 
     public void getBookFromISBN(String isbn)
     {
-        String  bookUrl = bookAPIUrl + isbn + ".json";
+        String  bookUrl = bookAPIUrl + "isbn" + isbn + ".json";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, bookUrl, null, new Response.Listener<JSONObject>()
