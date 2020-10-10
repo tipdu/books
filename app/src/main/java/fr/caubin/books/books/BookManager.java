@@ -20,8 +20,8 @@ import fr.caubin.books.utils.NetworkManager;
  */
 public class BookManager{
     Context applicationContext;
-    // TODO : set "https://openlibrary.org/" to be a project constant
-    String bookAPIUrl = "https://openlibrary.org/" + "books/" ;
+    // TODO : set "https://openlibrary.org" to be a project constant
+    String bookAPIUrl = "https://openlibrary.org" + "/books/" ;
     RequestQueue requestQueue;
 
     public BookManager(Context applicationContext) {
