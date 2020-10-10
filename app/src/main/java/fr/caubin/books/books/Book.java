@@ -7,6 +7,8 @@ import java.util.List;
  * Define the Book structure
  */
 public class Book {
+
+    // TODO : add missing pieces of information
     String title;
     String author;
     String resume;
