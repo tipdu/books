@@ -3,23 +3,25 @@ package fr.caubin.books.books;
 import java.net.URL;
 import java.util.List;
 
+import fr.caubin.books.author.Author;
+
 /**
  * Define the Book structure
  */
 public class Book {
 
     // TODO : add missing pieces of information
-    String title;
-    String author;
-    String resume;
-    URL    coverImage;
+    String       title;
+    List<Author> author;
+    String       resume;
+    URL          coverImage;
     List<String> genreList;
 
     public Book() {
 
     }
 
-    public Book(String title, String author, String resume, URL coverImage, List<String> genreList) {
+    public Book(String title, List<Author> author, String resume, URL coverImage, List<String> genreList) {
         this.title = title;
         this.author = author;
         this.resume = resume;
@@ -35,11 +37,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public List<Author> getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(List<Author> author) {
         this.author = author;
     }
 
