@@ -31,7 +31,6 @@ public class BookManager{
 
     public void getBookFromISBN(String isbn)
     {
-        Book book = new Book();
         String  bookUrl = bookAPIUrl + isbn + ".json";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -39,28 +38,25 @@ public class BookManager{
                 {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Book book = new Book();
-                        try {
-                            //TODO : use complementary manager to set authors
-                            book.setAuthor(response.getString("authors"));
-
-                            book.setTitle(response.getString("title"));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        returnBook(response);
                     }
 
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //TODO : handle the error
-                        Book book = new Book();
-                        String test = error.getMessage();
+                        String message = error.getMessage();
                     }
                 });
         NetworkManager.getInstance(applicationContext).addToQueueRequest(jsonObjectRequest);
 
+    }
 
+    public Book returnBook(JSONObject bookObject)
+    {
+        // TODO : finish the book creation
+        Book book = new Book();
 
+        return book;
     }
 }
