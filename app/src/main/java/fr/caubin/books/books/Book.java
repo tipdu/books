@@ -1,9 +1,13 @@
 package fr.caubin.books.books;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 
 import fr.caubin.books.author.Author;
+import fr.caubin.books.images.Image;
 
 /**
  * Define the Book structure
@@ -11,19 +15,19 @@ import fr.caubin.books.author.Author;
 public class Book {
 
     // TODO : add missing pieces of information
-    String       title;
-    List<Author> author;
-    String       resume;
-    URL          coverImage;
-    List<String> genreList;
+    String       title = StringUtils.EMPTY;
+    List<Author> authors = Collections.EMPTY_LIST;
+    String       resume = StringUtils.EMPTY;
+    Image        coverImage = null;
+    List<String> genreList = Collections.EMPTY_LIST;
 
     public Book() {
 
     }
 
-    public Book(String title, List<Author> author, String resume, URL coverImage, List<String> genreList) {
+    public Book(String title, List<Author> authors, String resume, Image coverImage, List<String> genreList) {
         this.title = title;
-        this.author = author;
+        this.authors = authors;
         this.resume = resume;
         this.coverImage = coverImage;
         this.genreList = genreList;
@@ -37,12 +41,12 @@ public class Book {
         this.title = title;
     }
 
-    public List<Author> getAuthor() {
-        return author;
+    public List<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(List<Author> author) {
-        this.author = author;
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
     }
 
     public String getResume() {
@@ -53,11 +57,11 @@ public class Book {
         this.resume = resume;
     }
 
-    public URL getCoverImage() {
+    public Image getCoverImage() {
         return coverImage;
     }
 
-    public void setCoverImage(URL coverImage) {
+    public void setCoverImage(Image coverImage) {
         this.coverImage = coverImage;
     }
 

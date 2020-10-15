@@ -1,36 +1,17 @@
 package fr.caubin.books.author;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Date;
 
 public class Author {
-    String name;
-    String surname;
-    String bio;
-    Date   birthDate;
-    Date   deathDate;
-
-    public Author(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
-        this.bio = null;
-        this.birthDate = null;
-        this.deathDate = null;
-    }
+    String name = StringUtils.EMPTY;
+    String bio = StringUtils.EMPTY;
+    Date   birthDate = null;
+    Date   deathDate = null;
 
     public Author() {
-        this.name = null;
-        this.surname = null;
-        this.bio = null;
-        this.birthDate = null;
-        this.deathDate = null;
-    }
 
-    public Author(String name, String surname, String bio, Date birthDate, Date deathDate) {
-        this.name = name;
-        this.surname = surname;
-        this.bio = bio;
-        this.birthDate = birthDate;
-        this.deathDate = deathDate;
     }
 
     public String getName() {
@@ -39,14 +20,6 @@ public class Author {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public String getBio() {

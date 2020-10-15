@@ -8,9 +8,15 @@ import fr.caubin.books.ui.main.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MainManager mainManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Get the main manager
+        mainManager = MainManager.initialize(this.getApplicationContext());
+
         setContentView(R.layout.main_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()

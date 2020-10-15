@@ -42,7 +42,6 @@ public class AuthorManager {
                     }
                 });
         NetworkManager.getInstance(applicationContext).addToQueueRequest(jsonObjectRequest);
-
     }
 
     public Author returnAuthor(JSONObject authorObject)

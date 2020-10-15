@@ -3,6 +3,7 @@ package fr.caubin.books.books;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,11 +19,13 @@ import fr.caubin.books.utils.NetworkManager;
 /**
  * Connect to the book API
  */
-public class BookManager{
+public class BookManager {
     Context applicationContext;
     // TODO : set "https://openlibrary.org" to be a project constant
     String bookAPIUrl = "https://openlibrary.org"  ;
     RequestQueue requestQueue;
+
+    private static final String TAG = "BookManager";
 
     public BookManager(Context applicationContext) {
         this.applicationContext = applicationContext;
@@ -31,14 +34,14 @@ public class BookManager{
 
     public void getBookFromISBN(String isbn)
     {
-        String  bookUrl = bookAPIUrl + "isbn" + isbn + ".json";
+        String bookURL = String.format("%s/isbn/%s.json", bookAPIUrl, isbn);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, bookUrl, null, new Response.Listener<JSONObject>()
+                (Request.Method.GET, bookURL, null, new Response.Listener<JSONObject>()
                 {
                     @Override
                     public void onResponse(JSONObject response) {
-                        returnBook(response);
+                        buildBook(response);
                     }
 
                 }, new Response.ErrorListener() {
@@ -52,10 +55,18 @@ public class BookManager{
 
     }
 
-    public Book returnBook(JSONObject bookObject)
+    public Book buildBook(JSONObject bookObject)
     {
         // TODO : finish the book creation
         Book book = new Book();
+
+        Log.d(TAG, "Building book ...");
+
+        try {
+            book.setTitle(bookObject.getString("title"));
+        } catch (JSONException e) {
+
+        }
 
         return book;
     }
